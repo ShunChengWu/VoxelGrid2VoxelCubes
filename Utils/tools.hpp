@@ -1,5 +1,7 @@
 #pragma once
 
+#include <algorithm>
+
 typedef unsigned char uchar;
 std::vector<std::string> get_files_in_folder (std::string path, std::string type = "", bool return_full = false, bool sort = true){
     std::vector<std::string> file_vec;
