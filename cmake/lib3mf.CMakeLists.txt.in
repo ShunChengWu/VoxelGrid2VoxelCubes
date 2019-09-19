@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 2.8.2)
+project(lib3mf-download NONE)
+include(ExternalProject)
+ExternalProject_Add(
+        lib3mf
+        GIT_REPOSITORY      https://github.com/3MFConsortium/lib3mf.git
+        GIT_TAG             v1.8.1
+        PREFIX              "${CMAKE_BINARY_DIR}/lib3mf"
+        INSTALL_DIR         "${CMAKE_BINARY_DIR}/lib3mf"
+        CMAKE_ARGS          "-DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>"
+        TEST_COMMAND        ""
+        UPDATE_DISCONNECTED 1
+        STEP_TARGETS        update
+)
