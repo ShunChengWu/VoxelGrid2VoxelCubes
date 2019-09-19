@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cmath>
 
 typedef unsigned char uchar;
 std::vector<std::string> get_files_in_folder (std::string path, std::string type = "", bool return_full = false, bool sort = true){
@@ -325,7 +326,7 @@ void processRaw(size_t i, void* mat){
 #endif
 #ifdef hasInvertTSDF
                 T tsdf = static_cast<T*>(mat)[idx];
-                if (!(std::fabsf(tsdf) > 0.8f && std::fabsf(tsdf) < 1.0f))
+                if (!(std::abs(tsdf) > 0.8f && std::abs(tsdf) < 1.0f))
                     continue;
 #endif
 #ifdef hasOccupancy
